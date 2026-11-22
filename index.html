@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Engineering Lab 07 | Bootstrap 5</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #17324d;
+            --teal: #147d78;
+            --page: #f3f6fa;
+        }
+
+        body {
+            background: var(--page);
+            color: #263746;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        .page-header {
+            background: linear-gradient(120deg, #17324d, #147d78);
+            color: #fff;
+            padding: 2.5rem 0;
+        }
+
+        .page-header h1 {
+            font-weight: 800;
+            letter-spacing: -.03em;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,.82);
+            max-width: 760px;
+        }
+
+        .lab-section {
+            background: #fff;
+            border: 1px solid #e2eaf1;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(23,50,77,.045);
+        }
+
+        .section-heading {
+            color: var(--navy);
+            font-weight: 750;
+            margin-bottom: .35rem;
+        }
+
+        .task-label {
+            color: var(--teal);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .demo-box {
+            height: 100%;
+            min-height: 90px;
+            padding: 1.1rem;
+            border: 1px solid rgba(23,50,77,.12);
+            border-radius: .75rem;
+            background: #f1f7fb;
+        }
+
+        .demo-box strong {
+            color: var(--navy);
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: .75rem;
+        }
+
+        .nested-box {
+            background: #edf7f6;
+            border: 1px solid #cce8e4;
+            border-radius: .65rem;
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .form-label {
+            font-weight: 650;
+            color: var(--navy);
+        }
+
+        .example-card {
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid #e3eaf0;
+            border-radius: .9rem;
+            box-shadow: 0 8px 20px rgba(23,50,77,.06);
+        }
+
+        .example-card .card-img-top {
+            height: 175px;
+            object-fit: cover;
+        }
+
+        .product-card .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            background: #f7f9fb;
+        }
+
+        .btn-group .btn {
+            font-weight: 600;
+        }
+
+        footer {
+            color: #6b7b8a;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="small text-uppercase fw-bold mb-2" style="letter-spacing:.14em;color:#b8f0e7;">
+                Web Engineering · Lab 07
+            </div>
+            <h1 class="display-5 mb-3">Bootstrap 5 Components & Layout</h1>
+            <p class="mb-0">
+                Practice examples for containers, grid rows and columns, responsive layouts,
+                forms, alerts, cards, product cards, and button groups.
+            </p>
+        </div>
+    </header>
+
+    <main class="container py-4 py-lg-5">
+
+        <!-- Task 1(a): Container with two rows and equal columns -->
+        <section class="lab-section">
+            <div class="task-label">Task 1(a)</div>
+            <h2 class="h4 section-heading">Container with Two Rows</h2>
+            <p class="text-secondary">Each row contains two equal-width columns with content.</p>
+
+            <div class="container px-0">
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <div class="demo-box">
+                            <strong>Row 1 · Column 1</strong>
+                            <p class="mb-0 mt-2">This is the first half-width column.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="demo-box">
+                            <strong>Row 1 · Column 2</strong>
+                            <p class="mb-0 mt-2">This is the second half-width column.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="demo-box">
+                            <strong>Row 2 · Column 1</strong>
+                            <p class="mb-0 mt-2">Equal width: 6 of the 12 grid columns.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="demo-box">
+                            <strong>Row 2 · Column 2</strong>
+                            <p class="mb-0 mt-2">Columns stack on small screens.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 1(b): container-fluid with three rows -->
+        <section class="lab-section">
+            <div class="task-label">Task 1(b)</div>
+            <h2 class="h4 section-heading">Responsive Full-Width Grid</h2>
+            <p class="text-secondary">A container-fluid with three rows: different column widths, one full-width column, then three image columns.</p>
+        </section>
+
+        <div class="container-fluid px-0 mb-4">
+            <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                    <div class="demo-box">
+                        <strong>Row 1 · Wide Column (8/12)</strong>
+                        <p class="mb-0 mt-2">This column takes two-thirds of the row on medium screens and larger.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="demo-box">
+                        <strong>Row 1 · Narrow Column (4/12)</strong>
+                        <p class="mb-0 mt-2">This column takes one-third of the row.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-12">
+                    <div class="demo-box">
+                        <strong>Row 2 · Full-Width Column (12/12)</strong>
+                        <p class="mb-0 mt-2">This column spans the full width on every screen size.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img class="img-fluid demo-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Mountain landscape">
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid demo-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80" alt="Lake and mountains">
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid demo-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80" alt="Green forest">
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 1(c): Nested grid -->
+        <section class="lab-section">
+            <div class="task-label">Task 1(c)</div>
+            <h2 class="h4 section-heading">Nested Grid Layout</h2>
+            <p class="text-secondary">The second outer column contains a nested row with two different columns.</p>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="demo-box">
+                        <strong>Outer Column 1</strong>
+                        <p class="mb-0 mt-2">This is the first column in the main row.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="demo-box">
+                        <strong>Outer Column 2</strong>
+                        <div class="row g-2 mt-2">
+                            <div class="col-7">
+                                <div class="nested-box">
+                                    <strong>Nested Column 1</strong>
+                                    <p class="mb-0 mt-1 small">7 of 12 nested columns.</p>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="nested-box">
+                                    <strong>Nested Column 2</strong>
+                                    <p class="mb-0 mt-1 small">5 of 12 nested columns.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 1(d): Grid form -->
+        <section class="lab-section">
+            <div class="task-label">Task 1(d)</div>
+            <h2 class="h4 section-heading">Form Layout Using the Grid</h2>
+            <p class="text-secondary">Labels are in the first column and form inputs are in the second column.</p>
+
+            <form id="studentForm">
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-md-4">
+                        <label for="studentName" class="form-label mb-md-0">Full name</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="studentName" placeholder="Enter your name" required>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-md-4">
+                        <label for="studentEmail" class="form-label mb-md-0">Email address</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" class="form-control" id="studentEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-md-4">
+                        <label for="studentCourse" class="form-label mb-md-0">Course</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select class="form-select" id="studentCourse" required>
+                            <option value="" selected disabled>Select a course</option>
+                            <option>Web Engineering</option>
+                            <option>Software Engineering</option>
+                            <option>Computer Science</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-primary px-4">Submit Form</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Task 2(e): Success alert shown after form submission -->
+            <div id="formSuccess" class="alert alert-success alert-dismissible fade show mt-4 d-none" role="alert">
+                <strong>Success!</strong> Your form has been submitted.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </section>
+
+        <!-- Task 2(f): Single card -->
+        <section class="lab-section">
+            <div class="task-label">Task 2(f)</div>
+            <h2 class="h4 section-heading">Card Component</h2>
+            <p class="text-secondary">A card with an image at the top, title, description, and Read More button.</p>
+
+            <div class="row">
+                <div class="col-sm-8 col-lg-5">
+                    <div class="card example-card">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                             class="card-img-top" alt="Laptop on a desk">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Learning Web Development</h3>
+                            <p class="card-text text-secondary">
+                                Explore the fundamentals of building responsive websites with HTML, CSS, and Bootstrap.
+                            </p>
+                            <a href="#task-product-grid" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 2(g): Product card grid -->
+        <section class="lab-section" id="task-product-grid">
+            <div class="task-label">Task 2(g)</div>
+            <h2 class="h4 section-heading">Product Grid</h2>
+            <p class="text-secondary">Three columns, each containing a product card with an image, name, and Add to Cart button.</p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card example-card product-card">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
+                             class="card-img-top" alt="Wrist watch">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Classic Watch</h3>
+                            <p class="card-text text-secondary">A simple everyday watch with a timeless design.</p>
+                            <button type="button" class="btn btn-primary w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card example-card product-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85"
+                             class="card-img-top" alt="Wireless headphones">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Wireless Headphones</h3>
+                            <p class="card-text text-secondary">Comfortable headphones for music and daily listening.</p>
+                            <button type="button" class="btn btn-success w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card example-card product-card">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=85"
+                             class="card-img-top" alt="Camera">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Digital Camera</h3>
+                            <p class="card-text text-secondary">Capture everyday moments with a compact camera.</p>
+                            <button type="button" class="btn btn-warning w-100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 2(h): Button group -->
+        <section class="lab-section">
+            <div class="task-label">Task 2(h)</div>
+            <h2 class="h4 section-heading">Bootstrap Button Group</h2>
+            <p class="text-secondary">Buttons use different colors, sizes, and styles inside a .btn-group.</p>
+
+            <div class="d-flex flex-wrap gap-4 align-items-center">
+                <div>
+                    <div class="small text-secondary mb-2">Different colors</div>
+                    <div class="btn-group" role="group" aria-label="Button colors">
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <button type="button" class="btn btn-success">Success</button>
+                        <button type="button" class="btn btn-danger">Danger</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="small text-secondary mb-2">Different sizes</div>
+                    <div class="btn-group" role="group" aria-label="Button sizes">
+                        <button type="button" class="btn btn-outline-primary btn-sm">Small</button>
+                        <button type="button" class="btn btn-outline-primary">Regular</button>
+                        <button type="button" class="btn btn-outline-primary btn-lg">Large</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="small text-secondary mb-2">Different styles</div>
+                    <div class="btn-group" role="group" aria-label="Button styles">
+                        <button type="button" class="btn btn-info">Filled</button>
+                        <button type="button" class="btn btn-outline-secondary">Outline</button>
+                        <button type="button" class="btn btn-secondary">Secondary</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-3">
+            Web Engineering Lab 07 · Bootstrap 5
+        </footer>
+    </main>
+
+    <!-- Bootstrap 5 JavaScript Bundle: required for dismissible alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Show the success alert after a valid form submission.
+        const studentForm = document.getElementById("studentForm");
+        const formSuccess = document.getElementById("formSuccess");
+
+        studentForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            formSuccess.classList.remove("d-none");
+        });
+    </script>
+</body>
+</html>
